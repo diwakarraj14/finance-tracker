@@ -10,12 +10,16 @@
 
 <body>
 
-    <div class="container">
+    <div class="navbar">
+    <div class="nav-left">
         <h2>📊 Finance Dashboard</h2>
+        <p>👤 Logged in as: <b>{{ session['user'] }}</b></p>
+    </div>
 
-        <p>👤 Logged in as: {{ session['user'] }}</p>
-
-        <a href="/logout">🚪 Logout</a>
+    <div class="nav-right">
+        <a href="/logout" class="logout-btn">Logout</a>
+    </div>
+</div>
 
         <!-- CARDS -->
         <div class="dashboard">
