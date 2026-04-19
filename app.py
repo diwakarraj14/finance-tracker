@@ -7,7 +7,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 app=Flask(__name__)
 app.secret_key = 'mysecret'
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///finance.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'your_postgres_url'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db=SQLAlchemy(app)
 
