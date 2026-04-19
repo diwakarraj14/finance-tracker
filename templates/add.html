@@ -6,26 +6,31 @@
 </head>
 <body>
 
-<div class="container">
-    <h2>➕ Add Transaction</h2>
+<div class="form-wrapper">
 
-    <form method="POST">
-        <input type="text" name="description" placeholder="Enter description" required>
+    <div class="form-card">
+        <h2>➕ Add Transaction</h2>
 
-        <input type="number" name="amount" placeholder="Enter amount" required>
+        <form method="POST">
 
-        <select name="type">
-            <option>Income</option>
-            <option>Expense</option>
-        </select>
+            <input type="text" name="description" placeholder="Description" required>
 
-        <input type="date" name="date" required>
+            <input type="number" name="amount" placeholder="Enter amount" required>
 
-        <button type="submit">Add</button>
-    </form>
+            <select name="type">
+                <option value="Income">Income</option>
+                <option value="Expense">Expense</option>
+            </select>
 
-    <br>
-    <a href="/">⬅ Back</a>
+            <input type="date" name="date" required>
+
+            <button type="submit">Add Transaction</button>
+
+        </form>
+
+        <a href="/" class="back-btn">⬅ Back</a>
+    </div>
+
 </div>
 
 </body>
