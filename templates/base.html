@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Finance Tracker</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- HEADER -->
+<header style="background:#007bff; color:white; padding:10px;">
+    <h2>💰 Finance Tracker</h2>
+</header>
+
+<!-- MAIN CONTENT -->
+<div>
+    {% block content %}
+    {% endblock %}
+</div>
+
+<!-- FOOTER -->
+<footer style="position:fixed; bottom:0; width:100%; background:#222; color:white; text-align:center; padding:10px;">
+    <p>Developed by Diwakar Raj 🚀</p>
+</footer>
+
+</body>
+</html>
