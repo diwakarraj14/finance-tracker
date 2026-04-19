@@ -52,27 +52,41 @@
             {% endfor %}
         </table>
 
-        <!-- GRAPH -->
-        <div class="chart-container">
-            <canvas id="myChart"></canvas>
-        </div>
+       <!-- GRAPH SECTION -->
+<div class="chart-card">
+    <h3>📊 Income vs Expense</h3>
 
+    <div class="chart-container">
+        <canvas id="myChart"></canvas>
     </div>
+</div>
 
-    <script>
-        const ctx = document.getElementById('myChart');
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-        new Chart(ctx, {
-            type: 'pie',
-            data: {
-                labels: ['Income', 'Expense'],
-                datasets: [{
-                    data: [{{ income }}, {{ expense }}],
-            backgroundColor: ['green', 'red']
-        }]
+<script>
+    const ctx = document.getElementById('myChart');
+
+    new Chart(ctx, {
+        type: 'pie',
+        data: {
+            labels: ['Income', 'Expense'],
+            datasets: [{
+                data: [{{ income }}, {{ expense }}],
+                backgroundColor: ['#28a745', '#dc3545'],
+                borderWidth: 2
+            }]
+        },
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom'
+                }
+            }
         }
     });
-    </script>
+</script>
 
 </body>
 
