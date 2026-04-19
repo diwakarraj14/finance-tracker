@@ -1,9 +1,32 @@
-<h2>Signup</h2>
+{% extends 'base.html' %}
+{% block content %}
 
-<form method="POST">
-    <input type="text" name="username" placeholder="Enter username" required>
-    <input type="password" name="password" placeholder="Enter password" required>
-    <button type="submit">Signup</button>
-</form>
+<div class="auth-wrapper">
 
-<a href="/login">Already have account? Login</a>
+    <div class="auth-card">
+        <h2>✨ Create Account</h2>
+        <p class="subtitle">Join & start tracking your finances</p>
+
+        <form method="POST">
+
+            <div class="input-group">
+                <input type="text" name="username" placeholder="Username" required>
+            </div>
+
+            <div class="input-group">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit">Create Account</button>
+
+        </form>
+
+        <p class="switch-text">
+            Already have an account?
+            <a href="/login">Login</a>
+        </p>
+    </div>
+
+</div>
+
+{% endblock %}
