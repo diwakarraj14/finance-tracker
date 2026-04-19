@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Finance Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>📊 Finance Dashboard</h2>
+
+        <p>👤 Logged in as: {{ session['user'] }}</p>
+
+        <a href="/logout">🚪 Logout</a>
+
+        <!-- CARDS -->
+        <div class="dashboard">
+            <div class="card income">Income <br> ₹{{ income }}</div>
+            <div class="card expense">Expense <br> ₹{{ expense }}</div>
+            <div class="card balance">Balance <br> ₹{{ balance }}</div>
+        </div>
+
+        <br>
+        <a href="/add">+ Add Transaction</a>
+
+        <!-- TABLE -->
+        <table>
+            <tr>
+                <th>Description</th>
+                <th>Amount</th>
+                <th>Type</th>
+                <th>Date</th>
+                <th>Action</th>
+            </tr>
+
+            {% for t in data %}
+            <tr>
+                <td>{{ t.description }}</td>
+                <td>₹{{ t.amount }}</td>
+                <td>{{ t.type }}</td>
+                <td>{{ t.date }}</td>
+                <td><a href="/delete/{{ t.id }}">Delete</a></td>
+            </tr>
+            {% endfor %}
+        </table>
+
+        <!-- GRAPH -->
+        <div class="chart-container">
+            <canvas id="myChart"></canvas>
+        </div>
+
+    </div>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Income', 'Expense'],
+                datasets: [{
+                    data: [{{ income }}, {{ expense }}],
+            backgroundColor: ['green', 'red']
+        }]
+        }
+    });
+    </script>
+
+</body>
+
+</html>
